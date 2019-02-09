@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace csd3354_1week05
 {
-    class Program
-    {
-        static void Main(string[] args)
-       
+  
+        class Program
+        {
+            static void Main(string[] args)
             {
                 Elevator e = new Elevator();
                 e.setup();
@@ -20,9 +20,29 @@ namespace csd3354_1week05
         class Node
         {
             public Node() { }
-            public Node floor;
             public Node elevatorUp;
             public string FloorNumber;
+        }
+
+        class Department
+        {
+            public Department(string dept_name)
+            {
+                DepartmentDescription = dept_name;
+            }
+            public Department aDepartment;
+            public string DepartmentDescription;
+        }
+
+        class DepartmentStore
+        {
+            public void InitializeDepartments()
+            {
+                Department Kitchenware = new Department("Kitchenware");
+                Department Books = new Department("Books");
+
+            }
+
         }
 
         class Elevator
@@ -56,16 +76,14 @@ namespace csd3354_1week05
                 temp = Head;
 
                 // where am I going to start?
-                Console.WriteLine("The first floor is " + Head.FloorNumber);
+
                 while (temp != null)
                 {
-                    // NOW GET TO THE SECOND FLOOR!!!!
-                    temp = temp.elevatorUp;
                     Console.WriteLine(temp.FloorNumber);
+                    temp = temp.elevatorUp;
 
                 }
 
             }
         }
     }
-}
